@@ -12,23 +12,25 @@ import javax.inject.Inject
 @HiltViewModel
 class FirstViewModel @Inject constructor(
     private val getRandomBooksUseCase: GetRandomBooksUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val threeBooksLiveData = MutableLiveData<ArrayList<Book>>()
-    private var deletedBooksLiveData = MutableLiveData<ArrayList<Book>>()
+    private val chooseBookLiveData = MutableLiveData<Book>()
+
 
     val threeBooks: LiveData<ArrayList<Book>>
         get() = threeBooksLiveData
 
-    val deletedBooks: LiveData<ArrayList<Book>>
-        get() = deletedBooksLiveData
+    val chooseBook: LiveData<Book>
+        get() = chooseBookLiveData
 
+    fun showBooks() {
+        val books = getRandomBooksUseCase.getThreeBook()
+        threeBooksLiveData.value = books
+        val choosenBook = books[(0..2).random()]
+        chooseBookLiveData.value = choosenBook
 
-    fun showBooks(){
-        threeBooksLiveData.value = getRandomBooksUseCase.getThreeBook()
     }
-
-
 
 
 }
