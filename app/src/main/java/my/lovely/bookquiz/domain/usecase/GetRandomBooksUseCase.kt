@@ -1,21 +1,24 @@
 package my.lovely.bookquiz.domain.usecase
 
-import android.util.Log
+import my.lovely.bookquiz.domain.model.Book
 import my.lovely.bookquiz.domain.repository.BookRepository
 import javax.inject.Inject
 
 class GetRandomBooksUseCase @Inject constructor(private val bookRepository: BookRepository) {
 
-    fun getThreeBook(){
-        val data = bookRepository.getBooks()
+    fun getThreeBook(): ArrayList<Book> {
 
-        val names = mutableListOf<String>()
+        val data = bookRepository.getBooks().shuffled()
+        var threeBooks = arrayListOf<Book>()
 
-        for(i in data.keys){
-            names.add(i)
-            Log.d("MyLog",i)
+        for(i in 0..2){
+            threeBooks.add(data[i])
         }
+
+        return threeBooks
     }
+
+
 
 
 }

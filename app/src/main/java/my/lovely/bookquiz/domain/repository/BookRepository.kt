@@ -1,7 +1,8 @@
 package my.lovely.bookquiz.domain.repository
 
+import my.lovely.bookquiz.domain.model.Book
+
 interface BookRepository {
 
-
-    fun getBooks(): Map<String, String>
+    fun getBooks(): ArrayList<Book>
 }
