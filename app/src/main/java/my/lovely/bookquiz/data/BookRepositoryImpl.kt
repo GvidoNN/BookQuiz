@@ -23,7 +23,14 @@ class BookRepositoryImpl : BookRepository {
             "tempest",
             "pygmalion",
             "good_earth",
-            "sum_fears"
+            "sum_fears",
+            "game_of_thrones",
+            "da_vinci",
+            "hobbit",
+            "green_mile",
+            "henry_and_rybsy",
+            "charlie_chocolate",
+
         )
 
         val subjectArray = arrayListOf(
@@ -41,7 +48,13 @@ class BookRepositoryImpl : BookRepository {
             "A tempestuous noise of thunder and lightning heard",
             "Eynsford Hill: How do you do?",
             "It was Wang Lung’s marriage day.",
-            "It was not until he had nearly reached the outer perimeter of the stadium that the first explosion came."
+            "It was not until he had nearly reached the outer perimeter of the stadium that the first explosion came.",
+            "We should start back",
+            "Renowned curator Jacques Saunière staggered through the vaulted archway of the museum’s Grand Gallery",
+            "In a hole in the ground there lived a hobbit",
+            "The Green Mile is the hallway with a floor of green tiles that leads to the execution chamber, and it’s called the Green Mile because the linoleum is faded and worn to a shade of tired green.",
+            "Henry Huggins’s dog Ribsy was a plain ordinary city dog, the kind of dog that strangers usually called Mutt or Pooch",
+            "These two very old people are the father and mother of Mr. Bucket."
         )
 
         val titleArray = arrayListOf(
@@ -59,7 +72,13 @@ class BookRepositoryImpl : BookRepository {
             R.drawable.tempest,
             R.drawable.pygmalion,
             R.drawable.good_earth,
-            R.drawable.sum_fears
+            R.drawable.sum_fears,
+            R.drawable.game_of_thronesjpg,
+            R.drawable.da_vinchi,
+            R.drawable.hobbit,
+            R.drawable.green_mile,
+            R.drawable.henry_and_rysby,
+            R.drawable.charlie_and_chocolate
         )
 
         var booksArray = arrayListOf<Book>()
