@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
 import my.lovely.bookquiz.Const
 import my.lovely.bookquiz.R
@@ -31,8 +33,13 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val step = arguments?.getInt(Const.STEP) ?: 1
         val score = arguments?.getInt(Const.SCORE) ?: 0
+
+        MobileAds.initialize(requireContext()) {}
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
 
         if (step > 10) {
             bundle = Bundle()
@@ -93,6 +100,21 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
             Toast.makeText(requireContext(),"Try more!", Toast.LENGTH_SHORT).show()
         }
         findNavController().navigate(R.id.action_secondFragment_to_firstFragment, bundle)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.adView.resume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.adView.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        binding.adView.destroy()
     }
 
 

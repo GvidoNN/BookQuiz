@@ -77,6 +77,17 @@
             android:text="TextView"
             android:fontFamily="@font/nunito_medium"
             android:textSize="17sp" />
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            ads:adSize="BANNER"
+            android:layout_marginTop="30dp"
+            ads:adUnitId="ca-app-pub-7592888554989577/5685097324" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
