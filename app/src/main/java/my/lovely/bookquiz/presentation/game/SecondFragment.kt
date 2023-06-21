@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import dagger.hilt.android.AndroidEntryPoint
@@ -94,12 +95,21 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
         bundle.putInt(Const.STEP, step + 1)
         if (name1 == name2) {
             bundle.putInt(Const.SCORE, score + 1)
-            Toast.makeText(requireContext(),"Great!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Great!", Toast.LENGTH_SHORT).show()
         } else {
             bundle.putInt(Const.SCORE, score)
-            Toast.makeText(requireContext(),"Try more!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Try more!", Toast.LENGTH_SHORT).show()
         }
-        findNavController().navigate(R.id.action_secondFragment_to_firstFragment, bundle)
+        findNavController().navigate(R.id.action_secondFragment_to_firstFragment,
+            bundle,
+            navOptions {
+                anim {
+                    enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                    popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                    popExit = androidx.navigation.ui.R.anim.nav_default_pop_exit_anim
+                    exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                }
+            })
     }
 
     override fun onResume() {
